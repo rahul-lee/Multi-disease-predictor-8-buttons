@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Heart Disease Predictor</title>
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Pacifico"
+      rel="stylesheet"
+      type="text/css"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Arimo"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Hind:300"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style_heart.css') }}"
+    />
+  </head>
+
+  <body>
+    <div class="login">
+      <h1>Heart Disease Predictor</h1>
+    </div>
+
+      <form action="{{ url_for('predictheart')}}" method="post">
+        <label for="Age">Age</label><br />
+        <input
+          style="border: 1px solid black"
+          class="a"
+          type="text"
+          name="age"
+          placeholder="age"
+          required="required"
+        />
+        <br /><br />
+
+        <label for="Sex">Sex </label><br />
+        <select id="Sex" name="Sex">
+          <option value="1">Male</option>
+          <option value="0">Female</option></select
+        ><br /><br />
+
+        <label for="Chest pain type">Chest pain type</label><br />
+        <select id="Chest pain type " name="Chest pain type">
+          <option value="1">Typical angina</option>
+          <option value="2">Atypical angina</option>
+          <option value="3">Non-anginal pain</option>
+          <option value="4">Asymptomatic</option></select
+        ><br /><br />
+
+        <label for="rbp">Resting blood pressure </label><br />
+        <input
+          style="border: 1px solid black"
+          class="a"
+          type="text"
+          name="trestbps"
+          placeholder="in mm Hg"
+          required="required"
+        /><br /><br />
+
+        <label for="sc">Serum cholestoral</label><br />
+        <input
+          style="border: 1px solid black"
+          class="a"
+          type="text"
+          name="chol"
+          placeholder="in mg/dl"
+          required="required"
+        /><br /><br />
+
+        <label for="fbs">Fasting blood sugar</label><br />
+        <select id="Fasting blood sugar " name="Fasting blood sugar">
+          <option value="1">Have</option>
+          <option value="0">Don't Have</option></select
+        ><br /><br />
+
+        <!-- <p>
+          Resting electrocardiographic results -- 0: normal -- 1: having ST-T
+          wave abnormality (T wave inversions and/or ST elevation or depression
+          of > 0.05 mV) -- 2: showing probable or definite left ventricular
+          hypertrophy by Estes' criteria
+        </p> -->
+
+        <label for="Resting electrocardiographic"
+          >Resting electrocardiographic</label
+        ><br />
+        <select
+          id="Resting electrocardiographic "
+          name="Resting electrocardiographic"
+        >
+          <option value="0">Normal</option>
+          <option value="1">ST-T wave abnormality</option>
+          <option value="2">Probable</option></select
+        ><br /><br />
+
+        <label for="mhr">Maximum heart rate</label><br />
+        <input
+          style="border: 1px solid black"
+          class="a"
+          type="text"
+          name="thalach"
+          placeholder="Maximum heart rate achieved"
+          required="required"
+        /><br /><br />
+
+        <label for="Eia">Exercise induced angina</label><br />
+        <select id="Exercise induced angina " name="Exercise induced angina">
+          <option value="1">Yes</option>
+          <option value="2">No</option></select
+        ><br /><br />
+
+        <label for="ST">ST depression </label><br />
+        <input
+          style="border: 1px solid black"
+          class="a"
+          type="text"
+          name="oldpeak"
+          placeholder="Induced by exercise relative to rest"
+          required="required"
+        /><br /><br />
+
+        <label for="Slope">Slope of peak </label><br />
+        <select id="Slope " name="Slope">
+          <option value="1">Upsloping</option>
+          <option value="2">Flat</option>
+          <option value="3">Downsloping</option></select
+        ><br /><br />
+
+        <label for="ca">Number of vessels(flourosopy)</label><br /><input
+          style="border: 1px solid black"
+          class="a"
+          type="text"
+          name="ca"
+          placeholder="Enter from 0 to 3"
+          required="required"
+        /><br /><br />
+
+        <label for="Thal">Thal</label><br />
+        <select id="Thal " name="Thal">
+          <option value="3">Normal</option>
+          <option value="6">Fixed defect</option>
+          <option value="7">Reversable defect</option></select
+        ><br /><br />
+      <div>
+        <button type="submit" class="btn btn-primary btn-block btn-large">
+          Predict
+        </button>
+      </form>
+      <br />
+      <br />
+      <strong style="color: blue">{{predicted}}</strong>
+      <br />
+      <br />
+      <a href="http://127.0.0.1:5000/">Go to Home Page</a>
+
+      <br />
+    </div>
+    <br />
+  </body>
+</html>

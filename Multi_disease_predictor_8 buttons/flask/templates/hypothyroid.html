@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hypothyroid Predictor</title>
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Pacifico"
+      rel="stylesheet"
+      type="text/css"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Arimo"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Hind:300"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style_hypo.css') }}"
+    />
+  </head>
+
+  <body>
+    <div class="login">
+      <h1>Hypothyroid Predictor</h1>
+
+      <form action="{{ url_for('predictHypothyroid')}}" method="post">
+        <label for="Age">Age</label><br />
+        <input
+          style="border: 1px solid black"
+          class="form-control"
+          type="text"
+          name="Age"
+          placeholder="Age"
+          required="required"
+        />
+        <br /><br />
+
+        <label for="Sex">Sex</label><br />
+        <select name="sex" id="sex">
+          <option value="1">Male</option>
+          <option value="0">Female</option>
+        </select>
+        <br /><br />
+
+        <label for="on_thyroxine">On Thyroxine</label><br />
+        <select name="on_thyroxine" id="on_thyroxine">
+          <option value="1">Yes</option>
+          <option value="0">No</option>
+        </select>
+        <br /><br />
+
+        <label for="query_on_thyroxine">Query on Thyroxine</label><br />
+        <select name="query_on_thyroxine" id="query_on_thyroxine">
+          <option value="1">Yes</option>
+          <option value="0">No</option>
+        </select>
+        <br /><br />
+
+        <label for="on_antithyroid_medication">On Antithyroid medication</label
+        ><br />
+        <select name="on_antithyroid_medication" id="on_antithyroid_medication">
+          <option value="1">Yes</option>
+          <option value="0">No</option>
+        </select>
+        <br /><br />
+
+        <label for="thyroid_surgery">Thyroid surgery</label><br />
+        <select name="thyroid_surgery" id="on_thyroxine">
+          <option value="1">Yes</option>
+          <option value="0">No</option>
+        </select>
+        <br /><br />
+
+        <label for="query_hypothyroid">Query Hypothyroid</label><br />
+        <select name="query_hypothyroid" id="query_hypothyroid">
+          <option value="1">Yes</option>
+          <option value="0">No</option>
+        </select>
+        <br /><br />
+
+        <label for="query_hyperthyroid">Query Hyperthyroid</label><br />
+        <select name="query_hyperthyroid" id="query_hyperthyroid">
+          <option value="1">Yes</option>
+          <option value="0">No</option>
+        </select>
+        <br /><br />
+
+        <label for="pregnant">Pregnant</label><br />
+        <select name="pregnant" id="pregnant">
+          <option value="1">Yes</option>
+          <option value="0">No</option>
+        </select>
+        <br /><br />
+
+        <label for="sick">Sick</label><br />
+        <select name="sick" id="sick">
+          <option value="1">Yes</option>
+          <option value="0">No</option>
+        </select>
+        <br /><br />
+
+        <label for="tumor">Tumor</label><br />
+        <select name="tumor" id="tumor">
+          <option value="1">Yes</option>
+          <option value="0">No</option>
+        </select>
+        <br /><br />
+
+        <label for="on_thyroxine">OnThyroxine</label><br />
+        <select name="on_thyroxine" id="on_thyroxine">
+          <option value="1">Yes</option>
+          <option value="0">No</option>
+        </select>
+        <br /><br />
+
+        <label for="lithium">Lithium</label><br />
+        <select name="lithium" id="lithium">
+          <option value="1">Yes</option>
+          <option value="0">No</option>
+        </select>
+        <br /><br />
+
+        <label for="goitre">Goitre</label><br />
+        <select name="goitre" id="goitre">
+          <option value="1">Yes</option>
+          <option value="0">No</option>
+        </select>
+        <br /><br />
+
+        <label for="TSH_measured">TSH measured</label><br />
+        <select name="TSH_measured" id="TSH_measured">
+          <option value="1">Yes</option>
+          <option value="0">No</option>
+        </select>
+        <br /><br />
+
+        <label for="TSH">TSH</label><br />
+        <input
+          style="border: 1px solid black"
+          class="form-control"
+          type="text"
+          name="TSH"
+          placeholder="TSH"
+          required="required"
+        />
+        <br /><br />
+
+        <label for="T3_measured">T3 measured</label><br />
+        <select name="T3_measured" id="T3_measured">
+          <option value="1">Yes</option>
+          <option value="0">No</option>
+        </select>
+        <br /><br />
+
+        <label for="T3">T3</label><br />
+        <input
+          style="border: 1px solid black"
+          class="form-control"
+          type="text"
+          name="T3"
+          placeholder="T3"
+          required="required"
+        />
+        <br /><br />
+
+        <label for="TT4_measured">TT4 measured</label><br />
+        <select name="TT4_measured" id="TT4_measured">
+          <option value="1">Yes</option>
+          <option value="0">No</option>
+        </select>
+        <br /><br />
+
+        <label for="TT4">TT4</label><br />
+        <input
+          style="border: 1px solid black"
+          class="form-control"
+          type="text"
+          name="TT4"
+          placeholder="TT4"
+          required="required"
+        />
+        <br /><br />
+
+        <label for="T4U_measured">T4U measured</label><br />
+        <select name="T4U_measured" id="T4U_measured">
+          <option value="1">Yes</option>
+          <option value="0">No</option>
+        </select>
+        <br /><br />
+
+        <label for="T4U">T4U</label><br />
+        <input
+          style="border: 1px solid black"
+          class="form-control"
+          type="text"
+          name="T4U"
+          placeholder="T4U"
+          required="required"
+        />
+        <br /><br />
+
+        <label for="on_thyroxine">OnThyroxine</label><br />
+        <select name="on_thyroxine" id="on_thyroxine">
+          <option value="1">Yes</option>
+          <option value="0">No</option>
+        </select>
+        <br /><br />
+
+        <label for="FTI_measured">FTI measured</label><br />
+        <select name="FTI_measured" id="FTI_measured">
+          <option value="1">Yes</option>
+          <option value="0">No</option>
+        </select>
+        <br /><br />
+
+        <label for="FTI">FTI</label><br />
+        <input
+          style="border: 1px solid black"
+          class="form-control"
+          type="text"
+          name="FTI"
+          placeholder="FTI"
+          required="required"
+        />
+        <br /><br />
+
+        <label for="TBG_measured">TBG measured</label><br />
+        <select name="TBG_measured" id="TBG_measured">
+          <option value="1">Yes</option>
+          <option value="0">No</option>
+        </select>
+        <br /><br />
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">
+          Predict
+        </button>
+      </form>
+      <br />
+      <br />
+      <strong style="color: blue">{{predicted}}</strong>
+      <br />
+      <br />
+      <a href="http://127.0.0.1:5000/">Go to Home Page</a>
+      <br />
+    </div>
+    <br />
+  </body>
+</html>
